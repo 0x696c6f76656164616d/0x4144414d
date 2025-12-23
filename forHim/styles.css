@@ -279,6 +279,33 @@ h1 {
   }
 }
 
+@keyframes sway {
+  0%, 100% {
+    transform: translateX(0) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-8px) rotate(-3deg);
+  }
+  50% {
+    transform: translateX(0) rotate(0deg);
+  }
+  75% {
+    transform: translateX(8px) rotate(3deg);
+  }
+}
+
+.letter-character img {
+  animation: sway 3s ease-in-out infinite;
+}
+
+.letter-character img:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.letter-character img:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
 audio {
   display: none;
 }
