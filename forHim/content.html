@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Letter</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-container">
+        <div class="background-layer active" id="bgLayer1"></div>
+        <div class="background-layer" id="bgLayer2"></div>
+    </div>
+
+    <div class="screen active" id="passwordScreen">
+    <div class="password-container">
+        <audio id="bgMusic" loop src="audio/ByErik - desolate Slowed.mp3"></audio>
+        <div class="audio-controls">
+            <button id="playPauseBtn" class="audio-btn">▶︎</button>
+            <input type="range" id="volumeSlider" min="0" max="100" value="70" class="volume-slider">
+        </div>
+
+        <div class="password-header">
+            <div>
+                <h1>Present to the<br>birthday boy!</h1>
+                <input type="password" id="passwordInput" placeholder="Enter password">
+                <button class="buttonStyle" id="goBtn">Go</button>
+                <div class="error-message" id="errorMessage"></div>
+                <div class="hint-text" id="hintText"></div>
+            </div>
+            <div class="character-image">
+                <img src="site-graphics/adam.png" alt="Eryn">
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="new-mail-div">
+        <p>New mail!<br></p>
+        <img src="site-graphics/mail.png" id="mailImage">
+    </div>
+
+    <div class="screen" id="letterScreen">
+    <div class="letter-container">
+        <div class="audio-controls">
+            <button id="playPauseBtn2" class="audio-btn">▶︎</button>
+            <input type="range" id="volumeSlider2" min="0" max="100" value="70" class="volume-slider">
+        </div>
+        <div class="letter-character">
+            <img src="site-graphics/eryn.png" class="box">
+            <img src="site-graphics/adam.png" class="box">
+            </div>
+
+        <h2>Dear Adam 💜</h2>
+        <div class="letter-content">
+        <p>
+        I am so happy to be yours again and spend time with you like we used to back in summer.
+        </p>
+        <p>
+            Everytime I reminisce on pure moments like those, they provide nothing but solace through hardships.
+            I want nothing more than to cultivate that once more, into a form that's greater than ever before.
+        </p>
+        <p>
+            I want to be the last partner you ever need to come across. I know I'm not perfect and I won't be able to offer 
+            absolutely everything upfront, but I want to try. I want to keep learning along the way to making you happy and
+            try to make you less worried within my power. Even when the road is a bit bumpy between us, I still look forward
+            to the journey ahead.
+        </p>
+        <p>
+            Loving you taught me many things- it taught me lessons and it blessed me with miracles. If you combine all the pain
+            we went through to try to amend our faults, I would go through that many times over if it meant consolidating a future
+            with you. From the moment I met you, I knew you weren't going to be an ordinary experience. You were meant to be a long-
+            lasting feverdream.
+        </p>
+        <p>
+            Originally I was going to just give you a letter embedded in a cute card, but I thought this would be a great way to really
+            show you how much you're appreciated. I started coding this on 19/12/2025 and wanted to give myself time to make it perfect.
+            I'm not the best web designer because my strengths lie elsewhere, but for what I can do I really tried my best. And I wanted
+            to give you a token of appreciation that was mobile- something you could read no matter where you were. And I wanted to deliver
+            that in a way that came from who Eryn was- a programmer. My passion for you, and my passion for computer science both come together
+            to give you the purest and most raw form of love.
+        </p>
+        <p>
+            No matter where you are, no matter what we go through, you will always be a pinnacle of faith for me. As long as you're here, every 
+            pain and suffering is worth blood, sweat, and tears. 
+        </p>
+        <p>With all my love,<br>Eryn 💕</p>
+
+        <p style="font-style: italic;">P.S. if you look closely at the equation you'll see that some of the terms
+            are your birthday (1, 29, 26) :3
+        </p>
+
+        <div class="calculator-container">
+            <div id="calculator"></div>
+        </div>
+
+        </div>
+    </div>
+    </div>
+
+  <script src="https://www.desmos.com/api/v1.11/calculator.js?apiKey=70e8bd387a954fb88e351a78439d74b6"></script>
+
+  <script src="functionality.js"></script>
+
+</body>
+</html>
