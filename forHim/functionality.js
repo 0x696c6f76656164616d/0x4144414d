@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     audio.volume = 0.3;
 
     const backgrounds = [
-        "/site-graphics/main.png",
-        "/site-graphics/pc.png"
+        "forHim/site-graphics/main.png",
+        "forHim/site-graphics/pc.png"
     ];
     let currentBgIndex = 0;
     let isTransitioning = false;
@@ -96,10 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("mailImage").addEventListener("click", () => {
             document.getElementById("letterScreen").classList.add("active");
             
-            // Fade in the letter container after a brief delay
             setTimeout(() => {
                 document.querySelector('.letter-container').classList.add('show');
-            }, 100); // Small delay to ensure the screen transition happens first
+            }, 100);
             
             initializeGraph();
         });
