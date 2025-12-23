@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hintDiv = document.getElementById("hintText");
     const passwordContainer = document.querySelector(".password-container");
     const themeBtn = document.getElementById("switchButton");
+    const characterImage = document.querySelector(".character-image");
 
     const audio = document.getElementById('bgMusic');
     const playPauseBtn = document.getElementById('playPauseBtn');
@@ -51,6 +52,11 @@ document.addEventListener("DOMContentLoaded", () => {
         errorDiv.style.color = "green";
         document.getElementById("hintText").remove();
 
+        characterImage.classList.add("bounce-animation");
+        
+        setTimeout(() => {
+            characterImage.classList.remove("bounce-animation");
+        }, 800);
 
         if (!continueButtonCreated) {
         createContinueButton();
