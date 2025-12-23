@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const hintDiv = document.getElementById("hintText");
     const passwordContainer = document.querySelector(".password-container");
     const themeBtn = document.getElementById("switchButton");
-    const characterImage = document.querySelector(".character-image");
 
     const audio = document.getElementById('bgMusic');
     const playPauseBtn = document.getElementById('playPauseBtn');
@@ -36,31 +35,34 @@ document.addEventListener("DOMContentLoaded", () => {
         if (password !== "290126") {
             passwordInput.value = "";
             count += 1;
-        errorDiv.textContent = "Wrong password, try again 💜";
-        errorDiv.style.color = "#d32f2f";
-        if (count === 3) {
-            hintDiv.classList.add("text-style");
-            hintDiv.textContent = "Hint: the day you turn 19!!";
-        }
-        if (count === 5) {
-            hintDiv.textContent = "It's 3! digits long :D";
-        }
-        return;
+            errorDiv.textContent = "Wrong password, try again 💜";
+            errorDiv.style.color = "#d32f2f";
+            if (count === 3) {
+                hintDiv.classList.add("text-style");
+                hintDiv.textContent = "Hint: the day you turn 19!!";
+            }
+            if (count === 5) {
+                hintDiv.textContent = "It's 3! digits long :D";
+            }
+            return;
         }
 
         errorDiv.textContent = "Good job my love! 💜";
         errorDiv.style.color = "green";
         document.getElementById("hintText").remove();
 
-        characterImage.classList.add("bounce-animation");
-        
-        setTimeout(() => {
-            characterImage.classList.remove("bounce-animation");
-        }, 800);
+        const characterImage = document.querySelector(".character-image");
+        if (characterImage) {
+            characterImage.classList.add("bounce-animation");
+            
+            setTimeout(() => {
+                characterImage.classList.remove("bounce-animation");
+            }, 800);
+        }
 
         if (!continueButtonCreated) {
-        createContinueButton();
-        continueButtonCreated = true;
+            createContinueButton();
+            continueButtonCreated = true;
         }
     }
 
@@ -100,14 +102,14 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 1000);
             
             document.getElementById("mailImage").addEventListener("click", () => {
-            document.getElementById("letterScreen").classList.add("active");
-            
-            setTimeout(() => {
-                document.querySelector('.letter-container').classList.add('show');
-            }, 100);
-            
-            initializeGraph();
-        });
+                document.getElementById("letterScreen").classList.add("active");
+                
+                setTimeout(() => {
+                    document.querySelector('.letter-container').classList.add('show');
+                }, 100);
+                
+                initializeGraph();
+            });
         });
 
         passwordContainer.appendChild(continueButton);
@@ -118,14 +120,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const elt = document.getElementById("calculator");
         calculator = Desmos.GraphingCalculator(elt, {
-        expressions: true,
-        settingsMenu: true
+            expressions: true,
+            settingsMenu: true
         });
 
         calculator.setExpression({
-        id: "stored-equation",
-        latex: "y = x^{2/3} + (1 - 0.1)\\sqrt{29 - x^2}\\sin(26\\pi x)",
-        color: "purple"
+            id: "stored-equation",
+            latex: "y = x^{2/3} + (1 - 0.1)\\sqrt{29 - x^2}\\sin(26\\pi x)",
+            color: "purple"
         });
     }
 
@@ -136,40 +138,40 @@ document.addEventListener("DOMContentLoaded", () => {
     goBtn.addEventListener("click", handlePasswordSubmit);
 
     function tryAutoplay() {
-    audio.play().catch(() => {
-        playPauseBtn.textContent = '▶';
-        if (playPauseBtn2) playPauseBtn2.textContent = '▶';
-    });
+        audio.play().catch(() => {
+            playPauseBtn.textContent = '▶';
+            if (playPauseBtn2) playPauseBtn2.textContent = '▶';
+        });
     }
 
     window.addEventListener('load', tryAutoplay);
 
     function togglePlayPause() {
-    if (audio.paused) {
-        audio.play();
-        playPauseBtn.textContent = '||';
-        if (playPauseBtn2) playPauseBtn2.textContent = '||';
-    } else {
-        audio.pause();
-        playPauseBtn.textContent = '▶';
-        if (playPauseBtn2) playPauseBtn2.textContent = '▶';
-    }
+        if (audio.paused) {
+            audio.play();
+            playPauseBtn.textContent = '||';
+            if (playPauseBtn2) playPauseBtn2.textContent = '||';
+        } else {
+            audio.pause();
+            playPauseBtn.textContent = '▶';
+            if (playPauseBtn2) playPauseBtn2.textContent = '▶';
+        }
     }
 
     playPauseBtn.addEventListener('click', togglePlayPause);
     if (playPauseBtn2) {
-    playPauseBtn2.addEventListener('click', togglePlayPause);
+        playPauseBtn2.addEventListener('click', togglePlayPause);
     }
 
     function updateVolume(value) {
-    audio.volume = value / 100;
-    volumeSlider.value = value;
-    if (volumeSlider2) volumeSlider2.value = value;
+        audio.volume = value / 100;
+        volumeSlider.value = value;
+        if (volumeSlider2) volumeSlider2.value = value;
     }
 
     volumeSlider.addEventListener('input', (e) => updateVolume(e.target.value));
     if (volumeSlider2) {
-    volumeSlider2.addEventListener('input', (e) => updateVolume(e.target.value));
+        volumeSlider2.addEventListener('input', (e) => updateVolume(e.target.value));
     }
 
-    });
+});
